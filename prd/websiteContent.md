@@ -126,10 +126,8 @@ Show logos or short text list of key suppliers and collaborators.
 
 * Hanetta Hayford – Managing Director
 * Daniel Gallego – Marketing
-* Neil Tran – Marketing
+* Neil Tran – Finance
 * Chidi Eze – Admin
-* Chad Gibbons – Consulting
-* Donna Stroupe – Creative
 
 ---
 

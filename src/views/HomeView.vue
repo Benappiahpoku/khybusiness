@@ -505,7 +505,7 @@ const featuredProjects: Project[] = [
     duration: '8 months',
     year: 2023,
     status: 'Completed',
-    image: '/stanbiclogo.png'
+    image: '/stanbiclogo.webp'
   },
   {
     id: 'glico-healthcare',
