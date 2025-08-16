@@ -46,7 +46,7 @@
               </span>
             </button>
 
-            <button @click="scrollToProjects"
+            <!-- <button @click="scrollToProjects"
               class="group border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white px-8 py-4 font-semibold transition-all duration-300 hover:shadow-xl hover:-translate-y-1 min-h-[48px]">
               <span class="flex items-center justify-center gap-2">
                 View Projects
@@ -57,7 +57,7 @@
                     clip-rule="evenodd" />
                 </svg>
               </span>
-            </button>
+            </button> -->
           </div>
         </div>
       </div>
@@ -87,7 +87,7 @@
       </div>
     </section>
 
-    <!-- ===== PROJECT CATEGORIES FILTER ===== -->
+    <!-- ===== PROJECT CATEGORIES FILTER =====
     <section class="py-12 px-4 bg-gray-50 top-0 z-40 border-b border-gray-200" id="projects-section">
       <div class="container mx-auto max-w-6xl">
         <div class="flex flex-wrap justify-center gap-4 animate-on-scroll">
@@ -99,7 +99,7 @@
           </button>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- ===== PROJECTS SHOWCASE ===== -->
     <section class="py-20 px-4 bg-gray-50">
@@ -214,7 +214,7 @@
         </div>
 
         <!-- Load More Button (if needed) -->
-        <div v-if="hasMoreProjects" class="text-center animate-on-scroll">
+        <!-- <div v-if="hasMoreProjects" class="text-center animate-on-scroll">
           <button @click="loadMoreProjects"
             class="group bg-gray-900 hover:bg-red-600 text-white px-8 py-4 font-semibold transition-all duration-300 hover:shadow-xl hover:-translate-y-1 min-h-[48px]">
             <span class="flex items-center justify-center gap-2">
@@ -227,7 +227,7 @@
               </svg>
             </span>
           </button>
-        </div>
+        </div> -->
       </div>
     </section>
 
@@ -366,11 +366,11 @@ interface Project {
   image: string
 }
 
-interface ProjectCategory {
-  id: string
-  name: string
-  icon: string
-}
+// interface ProjectCategory {
+//   id: string
+//   name: string
+//   icon: string
+// }
 
 // ===== Business Information (Ghana-specific) =====
 const businessInfo = {
@@ -386,14 +386,14 @@ const activeCategory = ref('all')
 const displayLimit = ref(8)
 
 // ===== Project Categories =====
-const projectCategories: ProjectCategory[] = [
-  { id: 'all', name: 'All Projects', icon: '🏢' },
-  { id: 'banking', name: 'Banking', icon: '🏦' },
-  { id: 'healthcare', name: 'Healthcare', icon: '🏥' },
-  { id: 'technology', name: 'Technology', icon: '💻' },
-  { id: 'ngo', name: 'NGO/Government', icon: '🏛️' },
-  { id: 'corporate', name: 'Corporate', icon: '🏢' }
-]
+// const projectCategories: ProjectCategory[] = [
+//   { id: 'all', name: 'All Projects', icon: '🏢' },
+//   { id: 'banking', name: 'Banking', icon: '🏦' },
+//   { id: 'healthcare', name: 'Healthcare', icon: '🏥' },
+//   { id: 'technology', name: 'Technology', icon: '💻' },
+//   { id: 'ngo', name: 'NGO/Government', icon: '🏛️' },
+//   { id: 'corporate', name: 'Corporate', icon: '🏢' }
+// ]
 
 // ===== Complete Projects Data =====
 const allProjects: Project[] = [
@@ -467,7 +467,7 @@ const allProjects: Project[] = [
     year: 2022,
     status: 'Completed',
     category: 'ngo',
-    image: '/ldslogo.png'
+    image: '/latterlogo.webp'
   },
   {
     id: 'google-ghana',
@@ -479,7 +479,7 @@ const allProjects: Project[] = [
     year: 2021,
     status: 'Completed',
     category: 'technology',
-    image: '/googlelogo.png'
+    image: '/googlelogo.webp'
   },
   {
     id: 'gra-training',
@@ -491,7 +491,7 @@ const allProjects: Project[] = [
     year: 2023,
     status: 'Completed',
     category: 'ngo',
-    image: '/gralogo.png'
+    image: '/gralogo.webp'
   },
   {
     id: 'fnb-community',
@@ -528,37 +528,37 @@ const filteredProjects = computed(() => {
   return projects.slice(0, displayLimit.value)
 })
 
-const hasMoreProjects = computed(() => {
-  const totalFilteredProjects = activeCategory.value === 'all'
-    ? allProjects.length
-    : allProjects.filter(project => project.category === activeCategory.value).length
+// const hasMoreProjects = computed(() => {
+//   const totalFilteredProjects = activeCategory.value === 'all'
+//     ? allProjects.length
+//     : allProjects.filter(project => project.category === activeCategory.value).length
 
-  return displayLimit.value < totalFilteredProjects
-})
+//   return displayLimit.value < totalFilteredProjects
+// })
 
 // ===== Core Functions =====
 /**
  * Set active project category filter
  */
-function setActiveCategory(categoryId: string): void {
-  activeCategory.value = categoryId
-  displayLimit.value = 8 // Reset display limit when changing categories
+// function setActiveCategory(categoryId: string): void {
+//   activeCategory.value = categoryId
+//   displayLimit.value = 8 // Reset display limit when changing categories
 
-  // Track category selection for analytics (Ghana-specific)
-  console.log('Project category selected:', {
-    category: categoryId,
-    page: 'projects',
-    country: 'Ghana',
-    timestamp: new Date().toISOString()
-  })
-}
+//   // Track category selection for analytics (Ghana-specific)
+//   console.log('Project category selected:', {
+//     category: categoryId,
+//     page: 'projects',
+//     country: 'Ghana',
+//     timestamp: new Date().toISOString()
+//   })
+// }
 
 /**
  * Load more projects
  */
-function loadMoreProjects(): void {
-  displayLimit.value += 6
-}
+// function loadMoreProjects(): void {
+//   displayLimit.value += 6
+// }
 
 /**
  * Opens WhatsApp with predefined message for business inquiry
@@ -614,16 +614,16 @@ function navigateToPage(path: string): void {
 /**
  * Smooth scroll to projects section
  */
-function scrollToProjects(): void {
-  try {
-    const element = document.getElementById('projects-section')
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  } catch (error) {
-    console.error('Scroll failed:', error)
-  }
-}
+// function scrollToProjects(): void {
+//   try {
+//     const element = document.getElementById('projects-section')
+//     if (element) {
+//       element.scrollIntoView({ behavior: 'smooth' })
+//     }
+//   } catch (error) {
+//     console.error('Scroll failed:', error)
+//   }
+// }
 
 /**
  * Animated counter for statistics
